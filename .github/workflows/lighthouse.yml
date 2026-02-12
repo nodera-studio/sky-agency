@@ -1,0 +1,26 @@
+name: Lighthouse CI (Weekly)
+on:
+  schedule:
+    - cron: '0 6 * * 1' # Weekly on Monday at 06:00 UTC
+
+jobs:
+  lighthouse:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Start local server
+        run: |
+          npx serve -l 8080 -s . &
+          sleep 3
+
+      - name: Audit with Lighthouse
+        uses: treosh/lighthouse-ci-action@v12
+        with:
+          urls: |
+            http://localhost:8080/
+            http://localhost:8080/servicii/
+            http://localhost:8080/contact/
+          budgetPath: ./budget.json
+          uploadArtifacts: true
+          configPath: ./.github/lighthouse/lighthouserc.json
