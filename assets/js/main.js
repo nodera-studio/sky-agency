@@ -49,11 +49,11 @@
       setTimeout(function () {
         loader.classList.add('hidden');
         document.body.classList.remove('loading');
-      }, 200);
+      }, 400);
       setTimeout(function () {
         if (loader && loader.parentNode) loader.remove();
         try { sessionStorage.setItem('sky_loaded', '1'); } catch (e) {}
-      }, 700);
+      }, 900);
     });
   }
 
