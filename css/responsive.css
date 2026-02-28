@@ -1,0 +1,417 @@
+/* ==========================================================================
+   RESPONSIVE OVERRIDES — Agentia Sky
+   Supplements the Webflow CSS breakpoints (991px, 767px, 479px)
+   with additional coverage and fixes for inline styles.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   BREAKPOINT: 1280px — Small Laptop
+   Bridges the gap between tablet (991px) and full desktop.
+   -------------------------------------------------------------------------- */
+@media screen and (max-width: 1280px) {
+
+  /* Reduce large padding on section wrappers */
+  .section-home-cohorts .page-padding .container-large > div[style*="padding: 8rem"] {
+    padding-top: 6rem !important;
+    padding-bottom: 6rem !important;
+  }
+
+  /* Scale down 10rem gaps in services staggered grid */
+  .section-home-cohorts .page-padding .container-large > div > div[style*="gap: 10rem"] {
+    gap: 6rem !important;
+  }
+  .section-home-cohorts .page-padding .container-large > div > div > div[style*="gap: 10rem"] {
+    gap: 6rem !important;
+  }
+
+  /* Professionals section - reduce gap and padding */
+  .section-professionals .page-padding .container-large > div[style*="padding: 8rem"] {
+    padding-top: 6rem !important;
+    padding-bottom: 6rem !important;
+  }
+  .section-professionals .page-padding .container-large > div[style*="gap: 4rem"] {
+    gap: 3rem !important;
+  }
+
+  /* Testimonials section padding */
+  .section-testimonial-slider > div[style*="padding: 8rem"] {
+    padding-top: 6rem !important;
+    padding-bottom: 6rem !important;
+  }
+
+  /* About page — story component already goes 1-col at 991px in Webflow,
+     but reduce padding above that */
+  .padding-vertical.padding-xhuge {
+    padding-top: 6rem !important;
+    padding-bottom: 6rem !important;
+  }
+
+  /* Services page — reduce large spacing */
+  .padding-vertical.padding-huge {
+    padding-top: 5rem !important;
+    padding-bottom: 5rem !important;
+  }
+}
+
+
+/* --------------------------------------------------------------------------
+   BREAKPOINT: 991px — Tablet (supplements Webflow's existing rules)
+   -------------------------------------------------------------------------- */
+@media screen and (max-width: 991px) {
+
+  /* Homepage: Services staggered grid → single column */
+  .section-home-cohorts .page-padding .container-large > div > div[style*="grid-template-columns: 1fr 1fr"] {
+    grid-template-columns: 1fr !important;
+  }
+  .section-home-cohorts .page-padding .container-large > div > div[style*="gap: 10rem"] {
+    gap: 4rem !important;
+  }
+  .section-home-cohorts .page-padding .container-large > div > div > div[style*="gap: 10rem"] {
+    gap: 4rem !important;
+  }
+  .section-home-cohorts .page-padding .container-large > div[style*="padding: 8rem"] {
+    padding-top: 5rem !important;
+    padding-bottom: 5rem !important;
+  }
+
+  /* Homepage: Professionals section → single column */
+  .section-professionals .page-padding .container-large > div[style*="grid-template-columns: 1fr 1fr"] {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+    padding-top: 5rem !important;
+    padding-bottom: 5rem !important;
+  }
+  .section-professionals .page-padding .container-large > div > div[style*="max-width: 500px"] {
+    max-width: none !important;
+  }
+
+  /* Homepage: 4-col value props → 2 columns */
+  .section-home-intro .page-padding .container-large > div > div[style*="repeat(4, 1fr)"] {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  /* Homepage: Testimonials → single column */
+  .testimonials-component > div[style*="repeat(3, 1fr)"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Homepage: Hero flex gap */
+  .home-hero-slide-content[style*="gap: 4rem"] {
+    gap: 3rem !important;
+  }
+
+  /* Pricing: 3-col value props → 2 columns (the selector in <style> uses section+section) */
+  div[style*="grid-template-columns: repeat(3, 1fr)"][style*="text-align: center"] {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  /* Pricing: Hero gap */
+  .home-hero-slide-content {
+    gap: 3rem !important;
+  }
+
+  /* About: Testimonial slider → 2 columns (already handled but reinforcing) */
+  .testi-slide {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  /* About: Sticky image section */
+  .image-background-sticky {
+    position: relative !important;
+    height: 80vw !important;
+    min-height: 300px !important;
+  }
+
+  /* CTA banner sections — reduce padding */
+  .section-banner > div[style*="padding: 4rem 3.5rem"] {
+    padding: 3rem 2rem 5rem 2rem !important;
+  }
+  .banner-component[style*="padding: 4rem 3.5rem"] {
+    padding: 3rem 2rem !important;
+  }
+
+  /* Services page: service items reduce margin */
+  .all-coohorts-item[style*="margin-bottom: 4rem"] {
+    margin-bottom: 3rem !important;
+  }
+
+  /* Large section padding reduction */
+  .padding-bottom.padding-xhuge {
+    padding-bottom: 5rem !important;
+  }
+}
+
+
+/* --------------------------------------------------------------------------
+   BREAKPOINT: 767px — Mobile Landscape (supplements Webflow's existing rules)
+   -------------------------------------------------------------------------- */
+@media screen and (max-width: 767px) {
+
+  /* Homepage: 4-col value props → single column */
+  .section-home-intro .page-padding .container-large > div > div[style*="repeat(4, 1fr)"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Homepage: Services staggered grid → tighter gap */
+  .section-home-cohorts .page-padding .container-large > div > div[style*="gap: 10rem"],
+  .section-home-cohorts .page-padding .container-large > div > div > div[style*="gap: 10rem"] {
+    gap: 2.5rem !important;
+  }
+
+  /* Homepage: Professionals section gap + padding */
+  .section-professionals .page-padding .container-large > div[style*="padding: 8rem"] {
+    padding-top: 3rem !important;
+    padding-bottom: 3rem !important;
+  }
+
+  /* Homepage: Testimonials padding */
+  .section-testimonial-slider > div[style*="padding: 8rem"] {
+    padding-top: 4rem !important;
+    padding-bottom: 4rem !important;
+  }
+
+  /* Pricing: 3-col value props → single column */
+  div[style*="grid-template-columns: repeat(3, 1fr)"][style*="text-align: center"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* About: Testimonial slider → single column */
+  .testi-slide {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* About: Sticky image section */
+  .image-background-sticky {
+    height: 70vw !important;
+    min-height: 250px !important;
+  }
+
+  /* Contact: Hero image half height */
+  .hero-image-half {
+    height: 80vw !important;
+  }
+
+  /* Contact: Form area padding */
+  .support-left-side {
+    padding-top: 2rem !important;
+    padding-bottom: 4rem !important;
+  }
+
+  /* Footer: reduce padding */
+  .footer-columns {
+    padding-top: 4rem !important;
+    padding-bottom: 3rem !important;
+  }
+
+  /* Large section padding reduction */
+  .padding-vertical.padding-xhuge {
+    padding-top: 4rem !important;
+    padding-bottom: 4rem !important;
+  }
+  .padding-vertical.padding-huge {
+    padding-top: 3rem !important;
+    padding-bottom: 3rem !important;
+  }
+  .padding-bottom.padding-xhuge {
+    padding-bottom: 4rem !important;
+  }
+
+  /* Reduce margin-huge spacing */
+  .margin-bottom.margin-huge {
+    margin-bottom: 3rem !important;
+  }
+
+  /* Services page: service items */
+  .all-coohorts-item[style*="margin-bottom: 4rem"] {
+    margin-bottom: 2rem !important;
+  }
+  .all-cohorts-image-wrapper {
+    height: 60vw !important;
+    min-height: 250px !important;
+  }
+
+  /* Generic inline grid overrides */
+  div[style*="padding: 8rem 0"] {
+    padding-top: 3rem !important;
+    padding-bottom: 3rem !important;
+  }
+  div[style*="padding: 0 0 6rem"] {
+    padding-bottom: 3rem !important;
+  }
+}
+
+
+/* --------------------------------------------------------------------------
+   BREAKPOINT: 479px — Mobile Portrait (supplements Webflow's existing rules)
+   -------------------------------------------------------------------------- */
+@media screen and (max-width: 479px) {
+
+  /* Homepage: Services staggered grid → tightest gap */
+  .section-home-cohorts .page-padding .container-large > div > div[style*="gap: 10rem"],
+  .section-home-cohorts .page-padding .container-large > div > div > div[style*="gap: 10rem"] {
+    gap: 2rem !important;
+  }
+
+  /* Homepage: Professionals padding */
+  .section-professionals .page-padding .container-large > div[style*="padding: 8rem"] {
+    padding-top: 2rem !important;
+    padding-bottom: 2rem !important;
+  }
+
+  /* Homepage: Testimonials padding */
+  .section-testimonial-slider > div[style*="padding: 8rem"] {
+    padding-top: 2.5rem !important;
+    padding-bottom: 2.5rem !important;
+  }
+
+  /* Testimonial blocks padding */
+  .testimonial-block[style*="padding: 2rem"] {
+    padding: 1.25rem !important;
+  }
+
+  /* About: Sticky image section */
+  .image-background-sticky {
+    height: 90vw !important;
+    min-height: 220px !important;
+  }
+
+  /* Contact: Hero image */
+  .hero-image-half {
+    height: 70vw !important;
+  }
+
+  /* Pricing: Value props padding */
+  div[style*="padding: 4rem 0"] {
+    padding-top: 2rem !important;
+    padding-bottom: 2rem !important;
+  }
+
+  /* Section padding reduction */
+  .padding-vertical.padding-xhuge {
+    padding-top: 3rem !important;
+    padding-bottom: 3rem !important;
+  }
+  .padding-vertical.padding-huge {
+    padding-top: 2.5rem !important;
+    padding-bottom: 2.5rem !important;
+  }
+  .padding-bottom.padding-xhuge {
+    padding-bottom: 3rem !important;
+  }
+
+  /* Reduce margin-huge and margin-large */
+  .margin-bottom.margin-huge {
+    margin-bottom: 2rem !important;
+  }
+  .margin-bottom.margin-xlarge {
+    margin-bottom: 2rem !important;
+  }
+
+  /* Services page: service items */
+  .all-coohorts-item[style*="margin-bottom: 4rem"] {
+    margin-bottom: 1.5rem !important;
+  }
+  .all-cohorts-image-wrapper {
+    height: 80vw !important;
+    min-height: 200px !important;
+  }
+
+  /* Service card text padding */
+  div[style*="padding: 1.5rem"] {
+    padding: 1rem !important;
+  }
+
+  /* Footer */
+  .footer-columns {
+    padding-top: 3rem !important;
+    padding-bottom: 2rem !important;
+  }
+
+  /* Contact: checkbox/label flex items */
+  .margin-bottom.margin-small > label {
+    font-size: 0.8rem;
+  }
+
+  /* Generic inline padding overrides */
+  div[style*="padding: 8rem 0"] {
+    padding-top: 2rem !important;
+    padding-bottom: 2rem !important;
+  }
+  div[style*="padding: 0 0 6rem"] {
+    padding-bottom: 2rem !important;
+  }
+}
+
+
+/* --------------------------------------------------------------------------
+   BREAKPOINT: 1920px+ — Large Desktop
+   Prevent content from becoming too spread out on very large screens.
+   -------------------------------------------------------------------------- */
+@media screen and (min-width: 1921px) {
+  .container-large,
+  .container-medium,
+  .container-small {
+    max-width: 1400px !important;
+  }
+
+  .page-padding {
+    padding-left: 4rem !important;
+    padding-right: 4rem !important;
+  }
+}
+
+
+/* --------------------------------------------------------------------------
+   TOUCH TARGET IMPROVEMENTS
+   Ensure interactive elements meet minimum 44px touch target size on mobile.
+   -------------------------------------------------------------------------- */
+@media screen and (max-width: 991px) {
+  /* Nav links */
+  .nav-link {
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+  }
+
+  /* Footer links */
+  .footer-link {
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+  }
+
+  /* FAQ accordion items */
+  .tab-item-padding {
+    min-height: 44px;
+  }
+
+  /* Buttons already meet this requirement via padding */
+}
+
+
+/* --------------------------------------------------------------------------
+   HORIZONTAL OVERFLOW PREVENTION
+   -------------------------------------------------------------------------- */
+html, body {
+  overflow-x: hidden;
+}
+
+/* Prevent SVG illustrations from causing horizontal scroll */
+.cta-illustration,
+.svc-illus,
+.sp-illus,
+.ab-illus,
+.hero-illustration,
+.pi-illustration {
+  max-width: 100%;
+}
+
+/* Ensure images never overflow */
+img {
+  max-width: 100%;
+  height: auto;
+}
+/* Exception: images that are intentionally styled with object-fit */
+.image-full {
+  height: 100%;
+}

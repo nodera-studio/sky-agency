@@ -18,7 +18,8 @@ npx purgecss \
 # 2. Consolidate + Minify CSS
 echo "[2/5] Consolidating and minifying CSS..."
 cat css/purged/normalize.css css/purged/webflow.css css/purged/sky-5cdb33.webflow.css > css/combined.css
-npx clean-css-cli -O2 -o assets/css/styles.min.css css/combined.css
+cat css/combined.css css/responsive.css > css/combined-full.css
+npx clean-css-cli -O2 -o assets/css/styles.min.css css/combined-full.css
 
 # Replace old @font-face with WOFF2 declarations
 python3 -c "
@@ -55,4 +56,4 @@ echo "Images: $(du -sh assets/images/ | cut -f1)"
 echo "Total:  $(du -sh assets/ | cut -f1)"
 
 # Cleanup
-rm -rf css/purged css/combined.css
+rm -rf css/purged css/combined.css css/combined-full.css
